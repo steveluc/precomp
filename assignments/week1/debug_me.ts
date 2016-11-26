@@ -1,11 +1,9 @@
-let x=10;
-
 function add10(n) {
-    return n + 10;
+    return n.age + 10;
 }
 
-let y = 'hello';
+let y = { name: 'henry', age: 16 };
 let z = 2;
 
-console.log(add10(y));
+console.log(add10(z));
 
