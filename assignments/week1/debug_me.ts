@@ -1,9 +1,15 @@
-function add10(n) {
-    return n.age + 10;
+interface Person {
+    name: string;
+    age: number;
+    phone?: string;
+    car: string;
+}
+function add10(n:Person) {
+    return `\n Name: ${n.name} \n Age: ${n.age} \n Phone: ${n.phone} \n Car: ${n.car}`;
 }
 
-let y = { name: 'henry', age: 16 };
+let y:Person = { name: 'Henry', age: 16, phone: 'Galaxy S7', car: 'VW Jetta'};
 let z = 2;
 
-console.log(add10(z));
+console.log(add10(y));
 
