@@ -23,9 +23,12 @@ namespace DataStructures {
 
         print() {
             var entry = this.head;
-            // use a while loop to print all of the list elements starting from this elements
+            var count = 0;
+            // use this while loop to print all of the list elements 
             // the while loop will stop when the next property of 'entry' is undefined
+            // because undefined is 'false' in a while loop
             while (entry.next) {
+                // add the count for this element to the beginning of the print out
                 console.log(entry.data);
                 entry = entry.next;
             }
