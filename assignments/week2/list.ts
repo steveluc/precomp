@@ -8,7 +8,8 @@ namespace DataStructures {
     class StringList {
         head: StringListElement = undefined;
         tail: StringListElement = undefined;
-
+        
+        // insert a new element at the tail (end) of the list
         add(data: string) {
             var entry = new StringListElement(data);
             if (!this.tail) {
@@ -29,6 +30,7 @@ namespace DataStructures {
             // because undefined is 'false' in a while loop
             while (entry.next) {
                 // add the count for this element to the beginning of the print out
+                // as in 'Element n: string'
                 console.log(entry.data);
                 entry = entry.next;
             }
