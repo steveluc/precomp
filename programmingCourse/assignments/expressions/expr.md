@@ -53,3 +53,61 @@ v
 ```
 `v` ended up with the value (`10`) that it started with, but what happened in between?  What is the difference between `++` and `--`.  
 
+Next up, the _assignment_ operators.  You have seen one of these already, the basic assignment operator `=`, as part of the declaration of variable `v`.  The expression
+```typescript
+v = v + 2
+```
+is an assignment expression.  Although `v` appears in both the left-hand side and the right-hand side of the expression, `v` is used differently on each side.  On the right-hand side `v` is used as in any other expression: `v` refers to a location in memory and the JavaScript engine reads the current value from that location.  On the left-hand side, instead of reading from the memory location referenced by `v`, the JavaScript engine writes the value of the entire right-hand side expression into that location, _overwriting_ the old value in the location. 
+
+Test these _compound_ assignment expressions to determine what they do:
+```typescript
+v = 1
+v *= 2
+v += 1
+v /= 3
+v -= 1
+v += 5
+v %= 4
+```
+We move on now to the _comparison_ operators.  We use these to build up _conditional_ expressions, whose value is either `true` or `false`.  We most commonly use conditional expressions in _control_ statements such as `if`, `while`, and `for` to decide what statement the JavaScript engine will next execute.
+
+JavaScript and therefore TypeScript have extra operators for testing equality and inequality.  The JavaScript `==` operator should rarely be used because it will convert values of two different types such as number and string so that they become equal.
+
+Try these examples:
+```typescript
+1 == "1"; 
+false == " nt "; 
+[[],[]] == true; 
+```
+
+Most people find these conversions hard to predict and so they stick with the `===` operator and its negative counterpart `!==`.
+```typescript
+1 === "1"; 
+false === " nt "; 
+[[],[]] === true; 
+```
+
+Test these expressions to determine how the comparison operators work.
+```typescript
+4 < 3
+4 > 3
+4 >= 3
+4 <= 3
+4 !== 3
+4 == 3
+```
+
+For a bonus we have one "odd duck" operator called the ternary operator `?`.  Sometimes people write this operator `?:` because a colon is part of the overall expression.  The ternary operator is like an `if` statement in an expression because it uses a conditional expression to choose between two possible result expressions.
+
+Test these examples to see how it works.
+```typescript
+true ? 1 : 2
+false ? 1 : 2
+(3 < 4) ? "hat" : "cat"
+(2 === 2) ? "duh" : "hmm"
+```
+
+To understand the term _ternary_, take a look at count how many sub-expressions make up the entire `?:` expression.  There are three: first the conditional expression before the `?`, then after the `?` the expression to use if the conditional expression evaluates to `true` and finally after the `:` the expression to use if the conditional expression evaluates to `false`.  Each one of these sub-expressions is called an _operand_ and we say that `?:` _takes_ 3 operands.  
+
+In the same way, `+` is a _binary_ operator because it has two operands and `++` is a _unary_ operator because it has a single operand.
+ 
