@@ -164,4 +164,4 @@ false && true
 (3 === 1) || (5 === 2) && (1 === 1)
 true && false || true
 ```
-What is the order of precedence between `==` and `||`.  Does `!` have higher or lower precedence than the binary logical operators?
+What is the order of precedence between `==` and `||`?  Does `!` have higher or lower precedence than the binary logical operators?
