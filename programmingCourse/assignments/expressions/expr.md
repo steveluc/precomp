@@ -1,6 +1,6 @@
 # Expressions
 
-Most programming languages provide a way for programmers to build _expressions_.  We build expresions from _values_ and _operators_.  Some types of values include strings, numbers, and variables.  Some types of operators include _arithmetic_ operators (+, *), logical operators (||, &&), and comparison operators (==, >=).  
+Most programming languages provide a way for programmers to build _expressions_.  We build expresions from _values_ and _operators_.  Some types of values include strings, numbers, and variables.  Some types of operators include _arithmetic_ operators (`+`, `*`), logical operators (`||`, `&&`), and comparison operators (`===`, `>=`).  
 
 In this lesson, we will explore all the ways to build expressions in TypeScript.  We will do this by playing with expressions using node.  
 
@@ -51,7 +51,7 @@ v
 v--     
 v
 ```
-`v` ended up with the value (`10`) that it started with, but what happened in between?  What is the difference between `++` and `--`.  
+`v` ended up with the value (`10`) that it started with, but what happened in between?  What is the difference between `++` and `--`?  What is the difference between `v++` and `++v`?
 
 Next up, the _assignment_ operators.  You have seen one of these already, the basic assignment operator `=`, as part of the declaration of variable `v`.  The expression
 ```typescript
@@ -111,3 +111,57 @@ To understand the term _ternary_, take a look at count how many sub-expressions 
 
 In the same way, `+` is a _binary_ operator because it has two operands and `++` is a _unary_ operator because it has a single operand.
  
+### Order of Operations
+
+Like algebraic expressions, programming expressions have an _order of operations_.  Order of operations is really a consequence of _precedence_, meaning that some operators take precedence over others.  For example, the expression `4*2+3` evaluates to `11` and not `10` because `*` takes precedence over `+`, meaning that when a compiler translates this expression to machine code, it will output machine code that first multiplies `4` by `2` and then adds `3` to the result.
+
+Take a look at this [operator precedence table](https://www.w3schools.com/js/js_arithmetic.asp).  It appears at the bottom of the page and covers most of the JavaScript operators.  You can memorize this table or keep looking it up, OR you can just put in parentheses whenever you are not 100% confident what the order of operations will be.  This tutorial strongly suggests the latter approach.  It takes only seconds to add parentheses.  It can take hours to debug a problem that occurs because unexpected order of operations causes unexpected runtime behavior.
+
+Of course, you will also need to read other people's code and some programmers may choose to write expressions without parentheses.  For that reason, it is useful to know something about the order of operations.
+
+Type the following into node to see how operator precedence affects order of operations.
+
+``` typescript
+4 * 2 + 3
+9 === 3 + 2 * 3
+var v = 3
+3 * ++v
+3 * v++
+v === 3 || v === 5
+3 || v
+v === (3 || v) === 5
+v ? v % 3 : v - 1
+8 * 3 / 6
+```
+
+### Logical Operators
+
+A new type of operator crept into our order of operations examples: the _logical_ operator.  We use logical operators to connect conditional expressions (expressions that evaluate to `true` or `false`) into larger conditional expressions.  This helps us to form interesting tests in `if` statements and loops.  For example, the following `if` statement condition will add 1 to variable x only when variable v is both a floor wax and a desert topping:
+
+``` typescript
+if (isFloorWax(v) && isDesertTopping(v)) {
+    x++;
+}
+```
+
+In the `if` statement above, we assume that `isFloorWax` and `isDesertTopping` are JavaScript functions that return either `true` or `false`.  That brings us to another point: calls to JavaScript functions are expressions.  In fact, if you look back at the operator precedence table, you'll see that only a few operators have higher precedence than function calls.  One of these operators is the _member_ operator, which selects a property from an object.  This enables us to have objects with functions as properties.  For example, the following expression calls the `f` property on the object `obj`.
+
+``` typescript
+obj.f()
+```
+
+Getting back to logical operators, there are two binary operators `||` and `&&` and one unary operator, `!`.
+
+To see how these work try the following expressions:
+
+``` typescript
+false || true
+false && true
+! false
+! true
+(3 === 3) && !(4 === 1)
+(3 === 3) || (5 === 2) && (1 === 1)
+(3 === 1) || (5 === 2) && (1 === 1)
+true && false || true
+```
+What is the order of precedence between `==` and `||`.  Does `!` have higher or lower precedence than the binary logical operators?
