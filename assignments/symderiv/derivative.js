@@ -1,4 +1,4 @@
-var polyOne = [4, -3, 0, 4];
+var polyOne = [8, 2, -10, 3, 5];
 
 function derivative(coef) {
     var result = [];
@@ -9,17 +9,24 @@ function derivative(coef) {
     return result;
 }
 
+console.log(derivative(polyOne));
+
 console.log("The input is: \n");
 printPoly(polyOne);
+
+
 
 function printPoly(coef) {
     var wholePoly = "";
     var degreePlusOne = coef.length
 
-    for (var i = degreePlusOne - 1; i > 0; i--) {
+    for (var i = degreePlusOne - 1; i >= 0; i--) {
         if (coef[i] !== 0) {
-            var term = `${coef[i]}X`;
-            if (i !== 1) {
+            var term = `${coef[i]}`;
+            if (i >= 1) {
+                term += "X";
+            }
+            if (i >= 2) {
                 term = term + `^${i}`;
             }
             if ((coef[i] >= 0) && (i < (degreePlusOne - 1))) {
