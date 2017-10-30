@@ -178,7 +178,7 @@ Finally, there are some shift operators.  These slide the bits left or right.  T
 
 W3 Schools has a great [overview](https://www.w3schools.com/js/js_bitwise.asp) of bitwise operators.  Take a look at that before heading to the assignment.
 
-For bitwise operators, the assignment is to understand the program `sieve.js` in this directory.  Run it to see what it does.  Run also the program `sieveElementPerNumber.js`. Then experment with the bitwise operators used in `sieve.js` to answer the following questions.  You might find it useful to debug the program and watch what it does with the first few numbers.  You can also add `console.log` statements to print out some of the variables set by the program.
+For bitwise operators, the assignment is to understand the program `sieve.js` in this directory.  Run it to see what it does.  Run also the program `sieveElementPerNumber.js`. Then experment with the bitwise operators used in `sieve.js` to answer the following questions.  You might find it useful to debug the program and watch what it does with the first few numbers.  You can also add `console.log` statements to print out some of the variables set by the program.  Note in this program a `0` bit means "is prime" and a `1` bit means "is not prime."  We did this because it is easier for the computer to fill arrays with zeros than with ones.
 
 1. Use node to run some examples of `n % 32`.  For example, what is `5 % 32`?  How about `37 % 32`?
 2. `n.toString(2)` will print out `n` in binary digits if `n` is a number.  Try `(1<<5).toString(2)`.
@@ -186,5 +186,6 @@ For bitwise operators, the assignment is to understand the program `sieve.js` in
 4. Verify for yourself that `Math.floor(n/32)===(n>>5)`.  Why is this true? To answer, try thinking first about division by `2`.
 5. Why might we use individual bits to represent for each number whether it is prime?  What effect does this have on the amount of memory we must use to find the primes up to a given number?
 6. What is different between the two versions of the famous Sieve? Which do you like better: the clarity of the second version or the memory savings of the first version?
+
     
 
