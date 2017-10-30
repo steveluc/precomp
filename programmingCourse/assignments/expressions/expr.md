@@ -168,13 +168,13 @@ What is the order of precedence between `==` and `||`?  Does `!` have higher or 
 
 ### Bitwise Operators
 
-Now we come to a group of operators that will let us look inside numbers to see the _bits_ or _binary digits_ that the computer uses to represent the numbers.  The JavaScript _bitwise_ operators work on the computer's underlying representation of integers.  Computers represent integers in _binary_ notation, as a sequence of 1s and 0s.  For example, a computer represents the decimal number `4` using the binary digits `00000000000000000000000000000100`.  This means that the computer represents `4` as `0` times `2` to the zeroth power plus `0` times `2` to the first power plus `1` times `2` to the second power, which is `4`, plus `0` times `2` to the third power, and so on.  For this example, we've shown `4` rerpresented as 32 bits.  This is the number of bits JavaScript uses for bitwise operators, because the typical computer represents integers using at least 32 bits. 
+Now we come to a group of operators that will let us look inside numbers to see the _bits_ or _binary digits_ that the computer uses to represent the numbers.  The JavaScript _bitwise_ operators work on the computer's underlying representation of integers.  Computers represent integers in _binary_ notation, as a sequence of 1s and 0s.  For example, a computer represents the decimal number `4` using the binary digits `00000000000000000000000000000100`.  This means that the computer represents `4` as `0` times `2` to the zeroth power plus `0` times `2` to the first power plus `1` times `2` to the second power, which is `4`, plus `0` times `2` to the third power, and so on.  For this example, we've shown `4` represented as 32 bits.  This is the number of bits JavaScript uses for bitwise operators, because the typical computer represents integers using at least 32 bits. 
 
 Most of the operators work by taking each of the bits in a pair of operands `a` and `b`, and applying an operation _bitwise_ to `a` and `b`.  For example, in the expression `c = a | b`, JavaScript will apply an OR operation to the first bit of `a` and the first bit of `b` to make the first bit of `c`.  For example, if the first bit of `a` is `1` and the first bit of `b` is `0`, then the first bit of `c` will be `1`, but with the bitwise AND operation `c = a & b`, the first bit of `c` will be `0` because `1 & 0` equals `0`.
 
 There is also a unary operator `~`, which makes every `0` bit a `1` bit and every `1` bit a `0` bit (this is called _inverting_ the bits).
 
-Finally, there are some shift operators.  These slide the bits left or right.  There are two versions of the right-shift operator because of how computers represent negative numbers.  Just use the _unsigned_ right-shift operator for this assignment, which will deal only with non-negative integers.
+Finally, there are some shift operators.  These slide the bits left or right.  There are two versions of the right-shift operator because of how computers represent negative numbers.  Just use the _unsigned_ right-shift operator, `>>>`, for this assignment, which will deal only with non-negative integers.
 
 W3 Schools has a great [overview](https://www.w3schools.com/js/js_bitwise.asp) of bitwise operators.  Take a look at that before heading to the assignment.
 
@@ -185,6 +185,6 @@ For bitwise operators, the assignment is to understand the program `sieve.js` in
 3. Verify for yourself that `n % 32` === `n & 31` for all non-negative integers `n`.  For example, you could try a loop or just try some numbers with node.
 4. Verify for yourself that `Math.floor(n/32)===(n>>5)`.  Why is this true? To answer, try thinking first about division by `2`.
 5. Why might we use individual bits to represent for each number whether it is prime?  What effect does this have on the amount of memory we must use to find the primes up to a given number?
-6. What is different between the two versions of the famous Sieve?Which do you like better: the clarity of the second version or the memory savings of the first version?
+6. What is different between the two versions of the famous Sieve? Which do you like better: the clarity of the second version or the memory savings of the first version?
     
 
