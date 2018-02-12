@@ -28,19 +28,6 @@ console.log(antiDerivative(polyOne));
 console.log("The input is: \n");
 printPoly(polyOne);
 
-function gcd(a, b) {
-    if (b === 0) {
-        return a;
-    }
-    else {
-        return gcd(b, a % b);
-    }
-}
-
-function rationalToString(rat) {
-    var g = gcd()
-}
-
 function printPoly(coef) {
     var wholePoly = "";
     var degreePlusOne = coef.length
